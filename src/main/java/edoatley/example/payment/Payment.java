@@ -21,7 +21,7 @@ public class Payment {
 	private String payee;
 	private BigDecimal amount;
 	
-	protected Payment() {}
+	protected Payment() {} // JPA only
 	
 	public Payment(ZonedDateTime date, String payee, BigDecimal amount) {
 		super();
