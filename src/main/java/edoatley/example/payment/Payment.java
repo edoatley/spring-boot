@@ -20,7 +20,7 @@ public class Payment {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 	
-	@DateTimeFormat
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private ZonedDateTime date;
 	private String payee;
 	private BigDecimal amount;
