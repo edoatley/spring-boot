@@ -2,8 +2,11 @@ package edoatley.example;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
 public class MessagingAndRestApplication {
@@ -14,5 +17,11 @@ public class MessagingAndRestApplication {
 		SpringApplication.run(MessagingAndRestApplication.class, args);
 	}
 	
-	
+	public CommandLineRunner init(String... args) {
+		return  (evt) -> {
+			ObjectMapper objectMapper = new ObjectMapper();
+			log.debug("Calling CommandLineRunner to init objectMapper");
+			objectMapper.findAndRegisterModules();
+		};
+	}
 }
