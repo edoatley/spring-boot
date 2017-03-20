@@ -9,8 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -23,7 +21,7 @@ public class Payment {
     private Long id;
 	
 //	@DateTimeFormat(pattern = "yyyy-MM-dd")
-//	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private ZonedDateTime date;
 	private String payee;
 	private BigDecimal amount;
