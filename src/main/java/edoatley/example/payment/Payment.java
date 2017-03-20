@@ -22,8 +22,8 @@ public class Payment {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@JsonFormat(pattern = "yyyy-MM-dd")
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
+//	@JsonFormat(pattern = "yyyy-MM-dd")
 	private ZonedDateTime date;
 	private String payee;
 	private BigDecimal amount;
