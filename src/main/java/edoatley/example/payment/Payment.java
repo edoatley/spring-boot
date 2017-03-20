@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Payment {
 
@@ -17,6 +19,8 @@ public class Payment {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+	
+	@DateTimeFormat
 	private ZonedDateTime date;
 	private String payee;
 	private BigDecimal amount;
