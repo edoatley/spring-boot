@@ -18,7 +18,6 @@ public class Payment {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 	
-	//@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
 	private String payee;
 	private BigDecimal amount;
