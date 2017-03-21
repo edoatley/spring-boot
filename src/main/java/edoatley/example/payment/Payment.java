@@ -1,15 +1,13 @@
 package edoatley.example.payment;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Payment {
@@ -20,22 +18,21 @@ public class Payment {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 	
-//	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private ZonedDateTime date;
+	//@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate date;
 	private String payee;
 	private BigDecimal amount;
 	
 	protected Payment() {} // JPA only
 	
-	public Payment(ZonedDateTime date, String payee, BigDecimal amount) {
+	public Payment(LocalDate date, String payee, BigDecimal amount) {
 		super();
 		this.date = date;
 		this.payee = payee;
 		this.amount = amount;
 	}
 
-	public ZonedDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
