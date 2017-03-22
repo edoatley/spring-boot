@@ -23,15 +23,16 @@ public class MessagingAndRestApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(MessagingAndRestApplication.class);
 	
-	@Autowired
-	PaymentRepository paymentRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(MessagingAndRestApplication.class, args);
 	}
 	
+	@Autowired
+	PaymentRepository paymentRepository;
+
 	@Bean
-	public CommandLineRunner init(String... args) {
+	public CommandLineRunner init() {
 		log.error("Loading data repo");
 		return  (evt) -> {
 			// need to add code to convert the list into neat Payments to bung into save
