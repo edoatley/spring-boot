@@ -7,10 +7,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import edoatley.example.payment.Payment;
 import edoatley.example.persist.PaymentRepository;
@@ -18,7 +21,7 @@ import edoatley.example.persist.PaymentRepository;
 @SpringBootApplication
 public class MessagingAndRestApplication {
 
-	//private static final Logger log = LoggerFactory.getLogger(MessagingAndRestApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(MessagingAndRestApplication.class);
 	
 	@Autowired
 	PaymentRepository paymentRepository;
@@ -27,7 +30,9 @@ public class MessagingAndRestApplication {
 		SpringApplication.run(MessagingAndRestApplication.class, args);
 	}
 	
+	@Bean
 	public CommandLineRunner init(String... args) {
+		log.error("Loading data repo");
 		return  (evt) -> {
 			// need to add code to convert the list into neat Payments to bung into save
 			Random rand = new Random();
