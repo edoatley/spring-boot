@@ -31,16 +31,25 @@ public class MessagingAndRestApplication {
 	@Autowired
 	PaymentRepository paymentRepository;
 
+	
+	// 1) need to figure out how to send a batch of payments to the repo via AMQP
+	// 2) Need to write some tests
+	// 3) Need to switch to use mysql
 	@Bean
 	public CommandLineRunner init() {
 		log.error("Loading data repo");
 		return  (evt) -> {
 			// need to add code to convert the list into neat Payments to bung into save
 			Random rand = new Random();
-			List<String> listOfNamesToGeneratePaymentsFor = Arrays.asList("name1", "name2", "name3");
-			paymentRepository.save(listOfNamesToGeneratePaymentsFor
+			String names="Ed Oatley,John Smith,Kate Jones,Roger Gilmartin,Paul Smith,Jane "
+					   + "Parsons,Lisa Duncan,Allisa Rain,Mark Anthony,Rebecca Davis,Kara "
+			           + "Batty,EmmaWatson,Deborah Milner,Sandy Welyn,Matthew Harding,Chri"
+					   + "s Pointer";
+			paymentRepository.save(Arrays.asList(names.split(","))
 										.stream()
-				    					.map(s -> new Payment(LocalDate.now(), s, BigDecimal.valueOf(rand.nextInt(5000000), 2)))
+				    					.map(s -> new Payment(LocalDate.now().minusDays(rand.nextInt(50))
+				    										 , s
+				    										 , BigDecimal.valueOf(rand.nextInt(5000000), 2)))
 				    					.collect(Collectors.toList()));
 			
 		};
