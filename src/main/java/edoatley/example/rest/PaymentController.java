@@ -1,7 +1,7 @@
 package edoatley.example.rest;
 
 import java.time.ZonedDateTime;
-import java.util.List;
+import java.util.Arrays;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +19,11 @@ public class PaymentController {
 	PaymentController(MessageProducer messageProducer) {
 		this.messageProducer = messageProducer;
 	}
-	@RequestMapping(path="/asyncAddPayment")
-	public @ResponseBody PaymentReceievedConfirmmation addNewPayment(@RequestBody List<Payment> payments) {
+	@RequestMapping(path="/asyncAddPayments")
+	public @ResponseBody PaymentReceievedConfirmmation addNewPayment(@RequestBody Payment[] payments) {
 		
-		messageProducer.sendPaymentsToQueue(payments);
-		return new PaymentReceievedConfirmmation(payments.size(), true, ZonedDateTime.now());
+		messageProducer.sendPaymentsToQueue(Arrays.asList(payments));
+		return new PaymentReceievedConfirmmation(payments.length, true, ZonedDateTime.now());
 				
 	}
 }
