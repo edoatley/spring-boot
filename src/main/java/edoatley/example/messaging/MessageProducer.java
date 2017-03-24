@@ -29,17 +29,6 @@ public class MessageProducer {
 	}
 
 	public void sendPaymentsToQueue(List<Payment> payments) {
-		List<String> paymentStrings = payments.stream()
-				.map((p) -> {
-					try {
-						return mapper.writeValueAsString(p);
-					} catch (JsonProcessingException e) {
-						log.error("Failed to serialize " + p.toString());
-						return "";
-					}
-				})
-				.filter((s) -> !s.equals(""))
-				.collect(Collectors.toList());
-		rabbitTemplate.convertAndSend(RabbitMQConfig.queueName, paymentStrings);
+		rabbitTemplate.convertAndSend(RabbitMQConfig.queueName, payments);
 	}
 } 
