@@ -22,6 +22,8 @@ public class MessageProducer {
 	}
 
 	public void sendPaymentsToQueue(List<Payment> payments) {
-		rabbitTemplate.convertAndSend(RabbitMQConfig.queueName, payments);
+		for (Payment payment : payments) {
+			rabbitTemplate.convertAndSend(RabbitMQConfig.queueName, payment);
+		}
 	}
 } 
