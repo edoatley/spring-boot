@@ -16,7 +16,7 @@ public class MessageConsumer {
 	private static final Logger log = LoggerFactory.getLogger(MessageConsumer.class);
 	
 	@Autowired
-	ObjectMapper objectMapper;
+	private ObjectMapper objectMapper;
 	
   	public void receiveMessage(byte[] payment) throws IOException {
 

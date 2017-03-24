@@ -1,4 +1,4 @@
-package edoatley.example.messaging;
+package edoatley.example.rest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
