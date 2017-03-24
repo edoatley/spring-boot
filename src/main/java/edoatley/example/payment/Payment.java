@@ -9,9 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-
 @Entity
 public class Payment {
 
@@ -20,7 +17,6 @@ public class Payment {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-	@JsonDeserialize(using=LocalDateDeserializer.class)
 	private LocalDate date;
 	private String payee;
 	private BigDecimal amount;
