@@ -8,6 +8,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,9 +32,10 @@ public class RabbitMQConfig {
 	    }
 
 	    @Bean
-	    Jackson2JsonMessageConverter messageConverter() {
-	    	return new Jackson2JsonMessageConverter();
+	    MessageConverter messageConverter() {
+	        return new Jackson2JsonMessageConverter();
 	    }
+	    
 	    @Bean
 	    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
 	            MessageListenerAdapter listenerAdapter) {
@@ -48,6 +50,9 @@ public class RabbitMQConfig {
 	    
 	    @Bean
 	    MessageListenerAdapter listenerAdapter(MessageConsumer receiver) {
-	        return new MessageListenerAdapter(receiver, "receiveMessage");
+	    	MessageListenerAdapter adapter = new MessageListenerAdapter(receiver, "receiveMessage");
+	    	adapter.setMessageConverter(messageConverter());
+	    	return adapter;
+	        
 	    }
 }
