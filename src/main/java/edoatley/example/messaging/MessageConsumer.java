@@ -16,4 +16,7 @@ public class MessageConsumer {
 	public void receiveMessage(String payment) {
 		log.error("MessageConsumer.receiveMessage(String) --> " + payment);
 	}
+	public void receiveMessage(byte[] payment) {
+		log.error("MessageConsumer.receiveMessage(byte[]) --> " + new String(payment));
+	}
 } 
