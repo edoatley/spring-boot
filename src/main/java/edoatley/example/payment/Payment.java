@@ -45,7 +45,7 @@ public class Payment {
 	
 	@Override
     public String toString() {
-		return String.format("Payment[id=%d, date=%s, payee=%s, amount=%s", id
+		return String.format("Payment[id=%d, date=%s, payee=%s, amount=%s]", id
 				           , PAYMENT_DATE_AS_STRING_FORMAT.format(date), payee, amount);
 	}
 }

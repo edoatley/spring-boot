@@ -3,7 +3,6 @@ package edoatley.example;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -30,7 +29,6 @@ public class MessagingAndRestApplication {
 	
 	@Autowired
 	PaymentRepository paymentRepository;
-
 	
 	// 1) need to figure out how to send a batch of payments to the repo via AMQP
 	// 2) Need to write some tests
