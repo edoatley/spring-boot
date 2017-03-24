@@ -20,26 +20,26 @@ public class MessageProducer {
 	private static final Logger log = LoggerFactory.getLogger(MessageProducer.class);
 	
 	private RabbitTemplate rabbitTemplate; 
-    private final ConfigurableApplicationContext context;
     private ObjectMapper mapper;
     
-	public MessageProducer(RabbitTemplate rabbitTemplate, ConfigurableApplicationContext context, ObjectMapper mapper) {
+	public MessageProducer(RabbitTemplate rabbitTemplate, ObjectMapper mapper) {
 		super();
 		this.rabbitTemplate = rabbitTemplate;
-		this.context = context;
 		this.mapper = mapper;
 	}
 
 	public void sendPaymentsToQueue(List<Payment> payments) {
-		List<String> paymentStrings = payments.stream().map((p) -> {
-			try {
-				return mapper.writeValueAsString(p);
-			} catch (JsonProcessingException e) {
-				log.error("Failed to serialize " + p.toString());
-				return "";
-			}
-		}).filter((s) -> !s.equals("")).collect(Collectors.toList());
+		List<String> paymentStrings = payments.stream()
+				.map((p) -> {
+					try {
+						return mapper.writeValueAsString(p);
+					} catch (JsonProcessingException e) {
+						log.error("Failed to serialize " + p.toString());
+						return "";
+					}
+				})
+				.filter((s) -> !s.equals(""))
+				.collect(Collectors.toList());
 		rabbitTemplate.convertAndSend(RabbitMQConfig.queueName, paymentStrings);
-		context.close();
 	}
 } 

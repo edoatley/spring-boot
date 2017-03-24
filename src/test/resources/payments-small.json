@@ -1,34 +1,32 @@
-{
-    "payments":[
-        {
-            "date":"2017-03-25",
-            "payee":"Ed Oatley",
-            "amount":100.00
-        },
-        {
-            "date":"2017-03-25",
-            "payee":"John Smith",
-            "amount":200.00
-        },
-        {
-            "date":"2017-03-25",
-            "payee":"Kate Jones",
-            "amount":300.00
-        },
-        {
-            "date":"2017-03-25",
-            "payee":"Roger Gilmartin",
-            "amount":400.00
-        },
-        {
-            "date":"2017-03-25",
-            "payee":"Paul Smith",
-            "amount":500.00
-        },
-        {
-            "date":"2017-03-25",
-            "payee":"Jane Parsons",
-            "amount":600.00
-        }
-    ]
-}
+[
+    {
+        "date":"2017-03-25",
+        "payee":"Ed Oatley",
+        "amount":100.00
+    },
+    {
+        "date":"2017-03-25",
+        "payee":"John Smith",
+        "amount":200.00
+    },
+    {
+        "date":"2017-03-25",
+        "payee":"Kate Jones",
+        "amount":300.00
+    },
+    {
+        "date":"2017-03-25",
+        "payee":"Roger Gilmartin",
+        "amount":400.00
+    },
+    {
+        "date":"2017-03-25",
+        "payee":"Paul Smith",
+        "amount":500.00
+    },
+    {
+        "date":"2017-03-25",
+        "payee":"Jane Parsons",
+        "amount":600.00
+    }
+]

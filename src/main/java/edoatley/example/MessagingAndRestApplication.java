@@ -1,6 +1,7 @@
 package edoatley.example;
 
 import java.math.BigDecimal;
+import java.time.Clock;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Random;
@@ -25,6 +26,11 @@ public class MessagingAndRestApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(MessagingAndRestApplication.class, args);
+	}
+	
+	@Bean
+	public Clock clock() {
+	    return Clock.systemDefaultZone();
 	}
 	
 	@Autowired

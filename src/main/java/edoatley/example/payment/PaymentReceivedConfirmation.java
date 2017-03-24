@@ -1,13 +1,16 @@
-package edoatley.example.rest;
+package edoatley.example.payment;
 
 import java.time.ZonedDateTime;
 
-public class PaymentReceievedConfirmmation {
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class PaymentReceivedConfirmation {
 	private int numberOfPayments;
 	private boolean acknowledged;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private ZonedDateTime acknowledgementDateTime;
 	
-	public PaymentReceievedConfirmmation(int numberOfPayments, boolean acknowledged,
+	public PaymentReceivedConfirmation(int numberOfPayments, boolean acknowledged,
 			ZonedDateTime acknowledgementDateTime) {
 		super();
 		this.numberOfPayments = numberOfPayments;
