@@ -45,7 +45,7 @@ public class RabbitMQConfig {
 	    @Bean
 	    Jackson2ObjectMapperBuilder objectMapperBuilder() {
 	    	Jackson2ObjectMapperBuilder  builder = new Jackson2ObjectMapperBuilder();
-	    	//builder.json().dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+	    	builder.json().dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
 	    	builder.indentOutput(true).dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
 	    	return builder;
 	    }
