@@ -1,6 +1,5 @@
 package edoatley.example.messaging;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import org.springframework.amqp.core.Binding;
@@ -15,8 +14,6 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 public class RabbitMQConfig {
@@ -37,15 +34,14 @@ public class RabbitMQConfig {
 	        return BindingBuilder.bind(queue).to(exchange).with(queueName);
 	    }
 
-//	    @Bean
-//	    MessageConverter messageConverter() {
-//	        return new Jackson2JsonMessageConverter();
-//	    }
+	    @Bean
+	    MessageConverter messageConverter() {
+	        return new Jackson2JsonMessageConverter();
+	    }
 	    
 	    @Bean
 	    Jackson2ObjectMapperBuilder objectMapperBuilder() {
 	    	Jackson2ObjectMapperBuilder  builder = new Jackson2ObjectMapperBuilder();
-	    	builder.json().dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
 	    	builder.indentOutput(true).dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
 	    	return builder;
 	    }
