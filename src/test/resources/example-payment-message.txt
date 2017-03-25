@@ -1,1 +1,1 @@
-{"date":{"year":2017,"month":"MARCH","leapYear":false,"dayOfMonth":25,"dayOfWeek":"SATURDAY","dayOfYear":84,"era":"CE","monthValue":3,"chronology":{"calendarType":"iso8601","id":"ISO"}},"payee":"Ed Oatley","amount":100.00}
+{"date" : "2017-03-20", "payee":"Ed Oatley", "amount":100.00}
