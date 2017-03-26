@@ -23,11 +23,9 @@ public class MessageConsumerTest {
 	// class under test
 	@Autowired
 	private MessageConsumer messageConsumer;
-    
-	
+    	
 	@SpyBean
 	private ObjectMapper objectMapper;
-	
 	
     @Test
     public void testReceiveMessage() throws Exception {

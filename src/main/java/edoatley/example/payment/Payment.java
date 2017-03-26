@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import edoatley.example.rest.util.CustomLocalDateSerializer;
+import edoatley.example.rest.util.JsonDateFormat;
 
 @Entity
 public class Payment {
@@ -21,6 +25,8 @@ public class Payment {
     private Long id;
 	
 	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonDateFormat("yyyy-MM-dd")
+	@JsonSerialize(using=CustomLocalDateSerializer.class)
 	private LocalDate date;
 	
 	private String payee;

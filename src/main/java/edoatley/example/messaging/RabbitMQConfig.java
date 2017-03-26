@@ -39,6 +39,7 @@ public class RabbitMQConfig {
 	        return new Jackson2JsonMessageConverter();
 	    }
 	    
+
 	    @Bean
 	    Jackson2ObjectMapperBuilder objectMapperBuilder() {
 	    	Jackson2ObjectMapperBuilder  builder = new Jackson2ObjectMapperBuilder();
@@ -53,10 +54,11 @@ public class RabbitMQConfig {
 	        container.setConnectionFactory(connectionFactory);
 	        container.setQueueNames(queueName);
 	        container.setMessageListener(listenerAdapter);
-	        //container.setMessageConverter(messageConverter());
+	        container.setMessageConverter(messageConverter());
 	        return container;
 	    }
 
+	    
 	    
 	    @Bean
 	    MessageListenerAdapter listenerAdapter(MessageConsumer receiver) {
