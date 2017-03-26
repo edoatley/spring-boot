@@ -36,9 +36,9 @@ public class MessagingAndRestApplication {
 	@Autowired
 	PaymentRepository paymentRepository;
 	
-	// 1) need to figure out how to send a batch of payments to the repo via AMQP
-	// 2) Need to write some tests
-	// 3) Need to switch to use mysql
+	// 1) Need to switch to use mysql
+	// 2) Add security maybe?
+	// 3) Any other features?
 	@Bean
 	public CommandLineRunner init() {
 		log.error("Loading data repo");

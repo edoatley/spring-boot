@@ -8,3 +8,6 @@ curl -X POST -H 'Content-Type: application/json' -d @/home/ec2-user/projects/gra
 
 // rename a directory 
 find . -name '*-GHBAG-*' -exec bash -c 'mv $0 ${0/GHBAG/stream-agg}' {} \;
+
+// rabbitMQ get list of queues and pretty-print JSON
+curl -u guest:guest -XGET http://localhost:15672/api/queues | python -m json.tool
