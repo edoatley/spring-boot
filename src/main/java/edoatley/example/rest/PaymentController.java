@@ -33,6 +33,5 @@ public class PaymentController {
 		log.error("Received payments at /asyncAddPayments total number=" + payments.length + " 1st payment="+payments[0].toString());
 		messageProducer.sendPaymentsToQueue(Arrays.asList(payments));
 		return new PaymentReceivedConfirmation(payments.length, true, ZonedDateTime.now(clock));
-				
 	}
 }

@@ -13,8 +13,12 @@ import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 
 public class CustomLocalDateSerializer extends JsonSerializer<LocalDate> implements ContextualSerializer {
 
-	private String format;
+	private String format = "dd.MM.yyyy";
 
+	public CustomLocalDateSerializer() {
+		format = "dd.MM.yyyy";
+	}
+	
 	public CustomLocalDateSerializer(String format) {
 		this.format = format;
 	}

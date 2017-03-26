@@ -29,7 +29,7 @@ public class MessageConsumerTest {
 	
     @Test
     public void testReceiveMessage() throws Exception {
-    	InputStream is = this.getClass().getClassLoader().getResourceAsStream("example-payment-message.txt");
+    	InputStream is = this.getClass().getClassLoader().getResourceAsStream("payment-message.txt");
     	byte[] payment = IOUtils.toByteArray(is);
     	messageConsumer.receiveMessage(payment);
     	verify(this.objectMapper).readValue(payment, Payment.class);

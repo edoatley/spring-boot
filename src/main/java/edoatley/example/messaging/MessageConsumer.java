@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edoatley.example.payment.Payment;
+import edoatley.example.persist.PaymentRepository;
 
 @Component
 public class MessageConsumer {
@@ -18,10 +19,18 @@ public class MessageConsumer {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
-  	public void receiveMessage(byte[] payment) throws IOException {
+	@Autowired
+	private PaymentRepository paymentRepository;
+	
+  	public void receiveMessage(byte[] paymentMessage) throws IOException {
 
-		log.error("receiveMessage(byte[]) --> " + new String(payment));
-		Payment pay = objectMapper.readValue(payment, Payment.class);
-		log.error("receiveMessage(byte[]) --> " + pay.toString());
+		log.info("receiveMessage() -->  input [" + new String(paymentMessage) + "]");
+		
+		Payment payment = objectMapper.readValue(paymentMessage, Payment.class);
+		log.info("receiveMessage() --> output [" + payment.toString() + "]");
+		
+		Payment savedPayment = paymentRepository.save(payment);
+		log.info("receiveMessage() -->  saved [" + savedPayment.toString() + "]");
+		
   	}
 } 
