@@ -11,3 +11,8 @@ find . -name '*-GHBAG-*' -exec bash -c 'mv $0 ${0/GHBAG/stream-agg}' {} \;
 
 // rabbitMQ get list of queues and pretty-print JSON
 curl -u guest:guest -XGET http://localhost:15672/api/queues | python -m json.tool
+
+// connect to mysql
+mysql -uroot -ptest -h 172.17.0.4 -P 3306
+
+
