@@ -16,3 +16,5 @@ curl -u guest:guest -XGET http://localhost:15672/api/queues | python -m json.too
 mysql -uroot -ptest -h 172.17.0.4 -P 3306
 
 
+
+
