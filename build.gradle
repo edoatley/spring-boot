@@ -33,7 +33,7 @@ repositories {
 
 
 dependencies {
-	compile group: 'commons-io', name: 'commons-io', version: '2.4'
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-amqp')
 	compile("com.h2database:h2")
