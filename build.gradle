@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.1.5.RELEASE'
+		springBootVersion = '2.7.0'
 	}
 	repositories {
 		mavenCentral()
@@ -33,13 +33,13 @@ repositories {
 
 
 dependencies {
-	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	compile group: 'commons-io', name: 'commons-io', version: '2.11.0'
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-amqp')
 	compile("com.h2database:h2")
 	compile("org.springframework.boot:spring-boot-starter-data-jpa")
 	compile("org.springframework.boot:spring-boot-starter-data-rest")
-	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0-rc1")
+	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3")
 	//runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
