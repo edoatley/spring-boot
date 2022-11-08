@@ -39,7 +39,7 @@ dependencies {
 	compile("com.h2database:h2")
 	compile("org.springframework.boot:spring-boot-starter-data-jpa")
 	compile("org.springframework.boot:spring-boot-starter-data-rest")
-	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3")
+	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.0")
 	//runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
